@@ -36,15 +36,25 @@ class Art extends Model
         return $this->hasMany(Critic::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     //Relations many to many.
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
     }
 
+    public function actor_actress()
+    {
+        return $this->belongsToMany(Actor_Actress::class);
+    }
+
     //Relations polymorphic one to one.
     public function image()
     {
         return $this->morphOne(Image::class, 'imageable');
-    } 
+    }
 }

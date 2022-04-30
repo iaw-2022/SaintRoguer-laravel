@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('casts', function (Blueprint $table) {
+        Schema::create('art_actor_actress', function (Blueprint $table) {
             $table->id();
+
             $table->unsignedBigInteger('art_id');
-            $table->string('actor/actress');
-            $table->string('character');
+            $table->unsignedBigInteger('actor_actress_id');
             $table->timestamps();
 
             $table->foreign('art_id')->references('id')->on('arts')->onDelete('cascade');
+            $table->foreign('actor_actress_id')->references('id')->on('actor_actresses')->onDelete('cascade');
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('casts');
+        Schema::dropIfExists('art_actor_actress');
     }
 };
