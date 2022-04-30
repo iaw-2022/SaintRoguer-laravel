@@ -17,7 +17,7 @@ class Comment extends Model
 
     //Relations.
     //Relations many to one.
-    public function art()
+    public function arts()
     {
         return $this->belongsTo(Art::class);
     }

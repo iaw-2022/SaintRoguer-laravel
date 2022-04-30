@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Art extends Model
 {
     use HasFactory;
+    protected $table = 'arts';
 
     protected $fillable = [
         'imdb_id',
@@ -47,9 +48,9 @@ class Art extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    public function actor_actress()
+    public function actor_actresses()
     {
-        return $this->belongsToMany(Actor_Actress::class);
+        return $this->belongsToMany(ActorActress::class);
     }
 
     //Relations polymorphic one to one.
