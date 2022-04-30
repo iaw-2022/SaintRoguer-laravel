@@ -20,10 +20,10 @@ class ArtSeeder extends Seeder
         $Arts = Art::factory()->count(50)->create();
 
         foreach ($Arts as $Art) {
-            /* Image::factory(1)->create([
+            Image::factory(1)->create([
                 'imageable_id' => $Art->id,
                 'imageable_type' => Art::class
-            ]);*/
+            ]);
             Critic::factory()->count(1)->create([
                 'art_id' => $Art->id,
             ]);

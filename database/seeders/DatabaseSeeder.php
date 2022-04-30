@@ -8,7 +8,6 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
-use App\Models\Art;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +20,7 @@ class DatabaseSeeder extends Seeder
     {
         Storage::deleteDirectory('posters');
         Storage::makeDirectory('posters');
+
 
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
