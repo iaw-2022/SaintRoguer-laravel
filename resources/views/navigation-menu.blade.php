@@ -12,6 +12,14 @@
                 </div>
 
                 <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('arts.index') }}" :active="request()->routeIs('arts.index')">
+                        Movies & TV Shows
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('actors-actresses.index') }}" :active="request()->routeIs('actors-actresses.index')">
+                        Actors & Actresses
+                    </x-jet-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

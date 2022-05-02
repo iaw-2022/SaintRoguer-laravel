@@ -41,7 +41,7 @@
                         </p>
                         <div class="flex items-center mt-4">
                             @foreach ($art->tags as $tag)
-                            <button type="button" class="tag-art  h-90 w-60 ">
+                            <button type="button" class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
                                 {{$tag->name}}
                             </button>
                             @endforeach

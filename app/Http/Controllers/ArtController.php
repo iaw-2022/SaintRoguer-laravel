@@ -18,13 +18,10 @@ class ArtController extends Controller
 
     public function show(Art $art)
     {
-        //$actors_actresses = $art->actor_actresses;
         $critics = $art->critics;
         $actors_actresses = DB::table('actor_actress_art')->where('art_id', $art->id)
             ->join('actor_actresses', 'actor_actresses.id', '=', 'actor_actress_art.actor_actress_id')
             ->get();
-        //dd($roles);
-
         return view('arts.show', compact('art', 'actors_actresses', 'critics'));
     }
 }

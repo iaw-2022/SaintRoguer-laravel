@@ -19,4 +19,10 @@ class ActorActress extends Model
     {
         return $this->belongsToMany(Art::class);
     }
+
+    //Relations polymorphic one to one.
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
+    }
 }

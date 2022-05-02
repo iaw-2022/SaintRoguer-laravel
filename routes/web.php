@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtController;
+use App\Http\Controllers\ActorActressController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,12 +17,19 @@ use App\Http\Controllers\ArtController;
 Route::get('/', function () {
     return view('welcome');
 });*/
-
-Route::get('/', [ArtController::class, 'index'])->name('arts.index');
-//Route::resource('arts', ArtController::class)->names('arts');
-//Route::resource('/', ArtController::class)->names('arts');
+//art
+Route::resource('/', ArtController::class)->names('arts');
 Route::get('/arts/{art}', [ArtController::class, 'show'])->name('arts.show');
 
+//actor / actress
+Route::get('/actors-actresses', [ActorActressController::class, 'index'])->name('actors-actresses.index');
+Route::get('/actors-actresses/create', [ActorActressController::class, 'create'])->name('actors-actresses.create');
+Route::post('/actors-actresses', [ActorActressController::class, 'store'])->name('actors-actresses.store');
+Route::delete('/actors-actresses/{actor_actress}', [ActorActressController::class, 'destroy'])->name('actors-actresses.destroy');
+Route::get('/actors-actresses/{actor_actress}', [ActorActressController::class, 'edit'])->name('actors-actresses.edit');
+Route::put('/actors-actresses/{actor_actress}', [ActorActressController::class, 'update'])->name('actors-actresses.update');
+
+//Dashboasrd.
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
