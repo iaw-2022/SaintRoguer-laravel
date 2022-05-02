@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/', [ArtController::class, 'index'])->name('arts.index');
 //Route::resource('arts', ArtController::class)->names('arts');
+//Route::resource('/', ArtController::class)->names('arts');
+Route::get('/arts/{art}', [ArtController::class, 'show'])->name('arts.show');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

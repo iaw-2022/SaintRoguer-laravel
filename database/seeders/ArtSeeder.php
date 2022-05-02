@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Art;
 use App\Models\Image;
 use App\Models\Critic;
+use Faker\Generator;
 
 class ArtSeeder extends Seeder
 {
@@ -17,6 +18,8 @@ class ArtSeeder extends Seeder
      */
     public function run()
     {
+        $faker = app(Generator::class);
+
         $Arts = Art::factory()->count(50)->create();
 
         foreach ($Arts as $Art) {
@@ -32,21 +35,21 @@ class ArtSeeder extends Seeder
                 rand(5, 8),
             ]);
             $Art->actor_actresses()->attach([
-                rand(1, 10),
-                rand(11, 20),
-                rand(21, 30),
-                rand(31, 40),
-                rand(41, 50),
-                rand(51, 60),
-                rand(61, 70),
-                rand(71, 80),
-                rand(81, 90),
-                rand(91, 100),
-                rand(101, 110),
-                rand(111, 120),
-                rand(121, 130),
-                rand(131, 140),
-                rand(141, 150),
+                rand(1, 10) => ['role' => ($faker->word)],
+                rand(11, 20) => ['role' => ($faker->word)],
+                rand(21, 30) => ['role' => ($faker->word)],
+                rand(31, 40) => ['role' => ($faker->word)],
+                rand(41, 50) => ['role' => ($faker->word)],
+                rand(51, 60) => ['role' => ($faker->word)],
+                rand(61, 70) => ['role' => ($faker->word)],
+                rand(71, 80) => ['role' => ($faker->word)],
+                rand(81, 90) => ['role' => ($faker->word)],
+                rand(91, 100) => ['role' => ($faker->word)],
+                rand(101, 110) => ['role' => ($faker->word)],
+                rand(111, 120) => ['role' => ($faker->word)],
+                rand(121, 130) => ['role' => ($faker->word)],
+                rand(131, 140) => ['role' => ($faker->word)],
+                rand(141, 150) => ['role' => ($faker->word)],
             ]);
         }
     }

@@ -1,0 +1,130 @@
+.container {
+    @apply gap-12;
+
+}
+
+/* md */
+@media(min-width: 640px) {
+    .container {
+        @apply px-6;
+    }
+}
+
+/* lg */
+@media(min-width: 1024px) {
+    .container {
+        @apply px-8;
+    }
+}
+
+/*Art index */
+.main-art {
+    @apply w-full bg-gray-800 p-12;
+}
+
+.top-art {
+    @apply items-end justify-between mb-12
+}
+
+.page-title-art {
+    @apply text-4xl font-bold text-gray-400 mb-4
+}
+
+.search-description-art {
+    @apply text-2xl font-light text-gray-400
+}
+
+.search-form-art {
+    @apply flex-col max-w-sm justify-center
+}
+
+/* md */
+@media(min-width: 640px) {
+    .search-form-art {
+        @apply flex-row flex-row w-3/4 w-full space-x-3 space-y-3 space-y-0;
+    }
+}
+
+.search-form-text-art {
+    @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base
+}
+
+.search-form-text-art:focus {
+    @apply ring-purple-600 border-transparent
+}
+
+.search-form-button-art {
+    @apply flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md
+}
+
+.search-form-button-art:hover {
+    @apply bg-purple-700
+}
+
+.search-form-button-art:focus {
+    @apply outline-none ring-2 ring-purple-500 ring-offset-2 ring-offset-purple-200
+}
+
+.tag-art {
+    @apply py-2 px-4 bg-pink-600 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-full
+}
+
+.tag-art:focus {
+    @apply ring-pink-500 ring-offset-pink-200 outline-none ring-2 ring-offset-2
+}
+
+.tag-art:hover {
+    @apply bg-pink-700
+}
+
+.card-art {
+    @apply rounded-lg overflow-hidden shadow-lg m-auto
+}
+
+/* md */
+@media(min-width: 640px) {
+    .card-art {
+        @apply w-80 h-full
+    }
+}
+
+.image-art {
+    @apply object-cover object-center w-80 h-80 block
+}
+
+.card-botom-art {
+    background-color: #1f0c3d80;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+}
+
+.title-art {
+    @apply text-indigo-500 font-medium
+}
+
+/*Art show*/
+.main-show-art {
+    @apply bg-gray-800 p-12;
+}
+
+.show-card-art {
+    @apply flex max-w-sm w-full bg-gray-800 shadow-md rounded-lg overflow-hidden mx-auto
+}
+
+.show-card-art-border {
+    @apply w-2 bg-gray-800
+}
+
+.show-card-transition {
+    @apply absolute inset-0 z-10 transition duration-300 ease-in-out bg-gradient-to-t from-black via-gray-900 to-transparent
+}
+
+
+.show-card-transition2 {
+    @apply overflow-hidden rounded-xl relative transform transition ease-in-out duration-500 shadow-lg text-white
+}
+
+.show-card-transition2:hover {
+    @apply -translate-y-2 shadow-2xl
+}

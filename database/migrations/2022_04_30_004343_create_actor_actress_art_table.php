@@ -18,6 +18,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('art_id');
             $table->unsignedBigInteger('actor_actress_id');
+            $table->string('role');
             $table->timestamps();
 
             $table->foreign('art_id')->references('id')->on('arts')->onDelete('cascade');

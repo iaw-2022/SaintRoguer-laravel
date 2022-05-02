@@ -13,6 +13,7 @@ class Critic extends Model
         'from',
         'art_id',
         'comment',
+        'rating',
     ];
     //Relations.
     //Relations many to one.

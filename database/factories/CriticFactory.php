@@ -21,6 +21,7 @@ class CriticFactory extends Factory
             'from' => $this->faker->name(),
             'art_id' => Art::all()->random()->id,
             'comment' => $this->faker->text(200),
+            'rating' => $this->faker->numberBetween(1, 100),
         ];
     }
 }

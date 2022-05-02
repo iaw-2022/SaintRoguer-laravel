@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('type');
             $table->integer('year')->nullable();
             $table->Date('releaseDate')->nullable();
-            $table->time('duration')->nullable();
+            $table->integer('duration')->nullable();
             $table->text('plot')->nullable();
             $table->integer('userRating')->default(0);
             $table->integer('imdbRating')->default(0);

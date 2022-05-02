@@ -34,7 +34,7 @@ class ArtFactory extends Factory
             'type' => $this->faker->randomElement(['movie', 'series', 'episode']),
             'year' => $this->faker->randomNumber(4),
             'releaseDate' => $this->faker->date(),
-            'duration' => $this->faker->time(),
+            'duration' => $this->faker->numberBetween(1, 350),
             'plot' => $this->faker->text(),
             'userRating' => $this->faker->randomNumber(1),
             'imdbRating' => $this->faker->randomNumber(1),

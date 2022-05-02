@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('from');
             $table->unsignedBigInteger('art_id');
             $table->text('comment');
+            $table->integer('rating');
             $table->timestamps();
         });
     }
