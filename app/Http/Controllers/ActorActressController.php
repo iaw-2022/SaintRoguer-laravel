@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ActorActress;
+use App\Models\Art;
+use Illuminate\Support\Facades\DB;
+
 
 class ActorActressController extends Controller
 {
@@ -74,5 +77,44 @@ class ActorActressController extends Controller
     {
         $actor_actress->delete();
         return redirect()->route('actors-actresses.index')->with('danger', 'Actor/Actress deleted successfully');
+    }
+
+    public function addToArt(ActorActress $actor_actress)
+    {
+        $arts = Art::paginate(9);
+
+        return view('actors-actresses.addToArt', compact('actor_actress', 'arts'));
+    }
+
+    public function addToArtStore(Request $request, ActorActress $actor_actress, Art $art)
+    {
+        $art1 = Art::find($request->art_id);
+        $art1->actor_actresses()->attach([
+            $actor_actress->id => ['role' => $request->role]
+        ]);
+
+        $actors_actresses = ActorActress::paginate(9);
+
+        return redirect()->route('actors-actresses.index', compact('actors_actresses'))->with('success', 'Actor/Actress added to art successfully');
+    }
+
+    public function removeFromArt(ActorActress $actor_actress)
+    {
+
+        $arts = DB::table('actor_actress_art')->where('actor_actress_id', $actor_actress->id)
+            ->join('arts', 'arts.id', '=', 'actor_actress_art.art_id')
+            ->paginate(9);
+
+        return view('actors-actresses.removeFromArt', compact('actor_actress', 'arts'));
+    }
+
+    public function removeFromArtDestroy(Request $request, ActorActress $actor_actress, Art $art)
+    {
+        $art = Art::find($request->art_id);
+        $art->actor_actresses()->detach($request->id);
+
+        $actors_actresses = ActorActress::paginate(9);
+
+        return redirect()->route('actors-actresses.index', compact('actors_actresses'))->with('success', 'Actor/Actress remove from art successfully');
     }
 }

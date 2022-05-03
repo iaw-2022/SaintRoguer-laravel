@@ -29,6 +29,12 @@ Route::delete('/actors-actresses/{actor_actress}', [ActorActressController::clas
 Route::get('/actors-actresses/{actor_actress}', [ActorActressController::class, 'edit'])->name('actors-actresses.edit');
 Route::put('/actors-actresses/{actor_actress}', [ActorActressController::class, 'update'])->name('actors-actresses.update');
 
+Route::get('/actors-actresses/{actor_actress}/add-to-art', [ActorActressController::class, 'addToArt'])->name('actors-actresses.addToArt');
+Route::post('/actors-actresses/{actor_actress}/add-to-art', [ActorActressController::class, 'addToArtStore'])->name('actors-actresses.addToArtStore');
+Route::get('/actors-actresses/{actor_actress}/remove-from-art', [ActorActressController::class, 'removeFromArt'])->name('actors-actresses.removeFromArt');
+Route::post('/actors-actresses/{actor_actress}/remove-from-art', [ActorActressController::class, 'removeFromArtDestroy'])->name('actors-actresses.removeFromArtDestroy');
+
+
 //Dashboasrd.
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
