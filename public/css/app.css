@@ -1467,6 +1467,10 @@ select {
   --tw-gradient-from: #06b6d4;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(6 182 212 / 0));
 }
+.from-red-200 {
+  --tw-gradient-from: #fecaca;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(254 202 202 / 0));
+}
 .from-purple-500 {
   --tw-gradient-from: #a855f7;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(168 85 247 / 0));
@@ -1474,10 +1478,6 @@ select {
 .from-pink-500 {
   --tw-gradient-from: #ec4899;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(236 72 153 / 0));
-}
-.from-red-200 {
-  --tw-gradient-from: #fecaca;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(254 202 202 / 0));
 }
 .via-red-300 {
   --tw-gradient-stops: var(--tw-gradient-from), #fca5a5, var(--tw-gradient-to, rgb(252 165 165 / 0));
@@ -1488,14 +1488,14 @@ select {
 .to-blue-500 {
   --tw-gradient-to: #3b82f6;
 }
+.to-yellow-200 {
+  --tw-gradient-to: #fef08a;
+}
 .to-pink-500 {
   --tw-gradient-to: #ec4899;
 }
 .to-orange-400 {
   --tw-gradient-to: #fb923c;
-}
-.to-yellow-200 {
-  --tw-gradient-to: #fef08a;
 }
 .bg-cover {
   background-size: cover;
@@ -2314,6 +2314,10 @@ select {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(165 243 252 / var(--tw-ring-opacity));
 }
+.focus\:ring-red-100:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(254 226 226 / var(--tw-ring-opacity));
+}
 .focus\:ring-purple-200:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(233 213 255 / var(--tw-ring-opacity));
@@ -2329,10 +2333,6 @@ select {
 .focus\:ring-blue-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(147 197 253 / var(--tw-ring-opacity));
-}
-.focus\:ring-red-100:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(254 226 226 / var(--tw-ring-opacity));
 }
 .focus\:ring-opacity-50:focus {
   --tw-ring-opacity: 0.5;
@@ -2387,6 +2387,10 @@ select {
   --tw-gradient-from: #06b6d4;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(6 182 212 / 0));
 }
+.group:hover .group-hover\:from-red-200 {
+  --tw-gradient-from: #fecaca;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(254 202 202 / 0));
+}
 .group:hover .group-hover\:from-purple-500 {
   --tw-gradient-from: #a855f7;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(168 85 247 / 0));
@@ -2394,10 +2398,6 @@ select {
 .group:hover .group-hover\:from-pink-500 {
   --tw-gradient-from: #ec4899;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(236 72 153 / 0));
-}
-.group:hover .group-hover\:from-red-200 {
-  --tw-gradient-from: #fecaca;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(254 202 202 / 0));
 }
 .group:hover .group-hover\:via-red-300 {
   --tw-gradient-stops: var(--tw-gradient-from), #fca5a5, var(--tw-gradient-to, rgb(252 165 165 / 0));
@@ -2408,14 +2408,14 @@ select {
 .group:hover .group-hover\:to-blue-500 {
   --tw-gradient-to: #3b82f6;
 }
+.group:hover .group-hover\:to-yellow-200 {
+  --tw-gradient-to: #fef08a;
+}
 .group:hover .group-hover\:to-pink-500 {
   --tw-gradient-to: #ec4899;
 }
 .group:hover .group-hover\:to-orange-400 {
   --tw-gradient-to: #fb923c;
-}
-.group:hover .group-hover\:to-yellow-200 {
-  --tw-gradient-to: #fef08a;
 }
 .group:hover .group-hover\:pr-2 {
   padding-right: 0.5rem;
@@ -2520,6 +2520,11 @@ select {
     --tw-ring-color: rgb(21 94 117 / var(--tw-ring-opacity));
   }
 
+  .dark\:focus\:ring-red-400:focus {
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(248 113 113 / var(--tw-ring-opacity));
+  }
+
   .dark\:focus\:ring-purple-800:focus {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(107 33 168 / var(--tw-ring-opacity));
@@ -2538,11 +2543,6 @@ select {
   .dark\:focus\:ring-blue-800:focus {
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(30 64 175 / var(--tw-ring-opacity));
-  }
-
-  .dark\:focus\:ring-red-400:focus {
-    --tw-ring-opacity: 1;
-    --tw-ring-color: rgb(248 113 113 / var(--tw-ring-opacity));
   }
 }
 @media (min-width: 640px) {
@@ -2799,8 +2799,8 @@ select {
     grid-column: span 4 / span 4;
   }
 
-  .lg\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-3 {
@@ -2811,12 +2811,8 @@ select {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .lg\:grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .lg\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:px-8 {

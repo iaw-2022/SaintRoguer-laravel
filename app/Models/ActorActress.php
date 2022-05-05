@@ -17,7 +17,7 @@ class ActorActress extends Model
     //Relations many to many.
     public function arts()
     {
-        return $this->belongsToMany(Art::class);
+        return $this->belongsToMany(Art::class)->withPivot('role');
     }
 
     //Relations polymorphic one to one.

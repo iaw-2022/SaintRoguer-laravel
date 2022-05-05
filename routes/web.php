@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtController;
 use App\Http\Controllers\ActorActressController;
+use App\Http\Controllers\CriticController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });*/
 //art
-Route::resource('/', ArtController::class)->names('arts');
+Route::get('/', [ArtController::class, 'index'])->name('arts.index');
+Route::get('/arts/create', [ArtController::class, 'create'])->name('arts.create');
+Route::post('/arts', [ArtController::class, 'store'])->name('arts.store');
 Route::get('/arts/{art}', [ArtController::class, 'show'])->name('arts.show');
+Route::delete('/{art}', [ArtController::class, 'destroy'])->name('arts.destroy');
+Route::get('/arts/{art}/edit', [ArtController::class, 'edit'])->name('arts.edit');
+Route::put('/arts/{art}', [ArtController::class, 'update'])->name('arts.update');
 
 //actor / actress
 Route::get('/actors-actresses', [ActorActressController::class, 'index'])->name('actors-actresses.index');
@@ -33,6 +40,13 @@ Route::get('/actors-actresses/{actor_actress}/add-to-art', [ActorActressControll
 Route::post('/actors-actresses/{actor_actress}/add-to-art', [ActorActressController::class, 'addToArtStore'])->name('actors-actresses.addToArtStore');
 Route::get('/actors-actresses/{actor_actress}/remove-from-art', [ActorActressController::class, 'removeFromArt'])->name('actors-actresses.removeFromArt');
 Route::post('/actors-actresses/{actor_actress}/remove-from-art', [ActorActressController::class, 'removeFromArtDestroy'])->name('actors-actresses.removeFromArtDestroy');
+
+//Critic
+Route::get('/critics/create', [CriticController::class, 'create'])->name('critics.create');
+Route::post('/critics', [CriticController::class, 'store'])->name('critics.store');
+Route::get('/critics/{critic}/edit', [CriticController::class, 'edit'])->name('critics.edit');
+Route::put('/critics/{critic}', [CriticController::class, 'update'])->name('critics.update');
+Route::delete('/critics/{critic}', [CriticController::class, 'destroy'])->name('critics.destroy');
 
 
 //Dashboasrd.

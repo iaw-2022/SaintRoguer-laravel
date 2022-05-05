@@ -28,7 +28,8 @@
                                         $avgRating += $critic->rating;
                                         $count++;
                                     }
-                                    $avgRating = $avgRating / $count;
+                                    if ($count > 0)
+                                        $avgRating = $avgRating / $count;
                                     ?>
                                     <div class="popularity">{{$avgRating}}</div>
                                     <div class="text-sm text-gray-400">Critic rating:</div>
@@ -82,8 +83,17 @@
                         @foreach($actors_actresses as $actor_actress)
                         <li class="py-3 sm:py-4">
                             <div class="flex items-center space-x-4">
+
                                 <div class="flex-shrink-0">
-                                    <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+                                    @if($actor_actress->image)
+                                    <?php
+                                    $content = $actor_actress->image->image_content;
+                                    $image = $actor_actress->image->extension . "" . "" . $content;
+                                    ?>
+                                    <img class="w-8 h-8 rounded-full" src="{{$image}}" alt="{{$actor_actress->title}}">
+                                    @else
+                                    <img class="w-8 h-8 rounded-full" src="{{asset('images/actor_actress_placeholder.jpg')}}" alt="{{$actor_actress->title}}">
+                                    @endif
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -91,7 +101,7 @@
                                     </p>
                                 </div>
                                 <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                    {{$actor_actress->role}}
+                                    {{$actor_actress->pivot->role}}
                                 </div>
                             </div>
                         </li>
@@ -105,6 +115,15 @@
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Critics</h3>
                 </div>
+                <div class="flex justify-between items-center mb-4">
+                    <a href="{{route('critics.create',['art'=>$art])}}">
+                        <button class=" relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                Add a Critic
+                            </span>
+                        </button>
+                    </a>
+                </div>
                 <div class="flow-root">
                     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
                         @foreach ($critics as $critic)
@@ -117,8 +136,28 @@
                                     <p class="mt-2 text-gray-600">{{$critic->comment}}</p>
                                 </div>
                                 <div class="flex justify-end mt-4">
-                                    <a href="#" class="text-xl font-medium text-indigo-500">{{$critic->rating}}</a>
+                                    <div class="text-xl font-medium text-indigo-500">{{$critic->rating}}</div>
                                 </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white mt-4">
+                                <a href="{{route('critics.edit',$critic)}}">
+                                    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+                                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Edit
+                                        </span>
+                                    </button>
+                                </a>
+                                <form action="{{route('critics.destroy',['critic' => $critic, 'art' => $art])}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                            Eliminate
+                                        </span>
+                                    </button>
+                                </form>
                             </div>
                         </li>
                         @endforeach

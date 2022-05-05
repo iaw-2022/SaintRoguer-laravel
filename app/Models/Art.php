@@ -50,7 +50,7 @@ class Art extends Model
 
     public function actor_actresses()
     {
-        return $this->belongsToMany(ActorActress::class);
+        return $this->belongsToMany(ActorActress::class)->withPivot('role');
     }
 
     //Relations polymorphic one to one.

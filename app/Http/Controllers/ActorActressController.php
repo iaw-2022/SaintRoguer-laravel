@@ -24,7 +24,7 @@ class ActorActressController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'tile' => 'required|max:255',
         ]);
         $actor_actress = ActorActress::create($request->all());
         if ($request->file('file')) {
@@ -101,9 +101,7 @@ class ActorActressController extends Controller
     public function removeFromArt(ActorActress $actor_actress)
     {
 
-        $arts = DB::table('actor_actress_art')->where('actor_actress_id', $actor_actress->id)
-            ->join('arts', 'arts.id', '=', 'actor_actress_art.art_id')
-            ->paginate(9);
+        $arts = $actor_actress->arts()->paginate(9);
 
         return view('actors-actresses.removeFromArt', compact('actor_actress', 'arts'));
     }
