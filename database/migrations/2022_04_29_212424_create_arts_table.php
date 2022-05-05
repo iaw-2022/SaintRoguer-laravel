@@ -15,17 +15,17 @@ return new class extends Migration
     {
         Schema::create('arts', function (Blueprint $table) {
             $table->id();
-            $table->string('imdb_id')->unique();
-            $table->string('title');
+            $table->string('imdb_id')->unique()->nullable();
+            $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->string('type');
-            $table->integer('year')->nullable();
-            $table->Date('releaseDate')->nullable();
-            $table->integer('duration')->nullable();
-            $table->text('plot')->nullable();
-            $table->integer('userRating')->default(0);
-            $table->integer('imdbRating')->default(0);
-            $table->string('director')->nullable();
+            $table->integer('year');
+            $table->Date('releaseDate');
+            $table->integer('duration');
+            $table->text('plot');
+            $table->integer('userRating')->default(0)->nullable();
+            $table->integer('imdbRating')->default(0)->nullable();
+            $table->string('director');
             $table->string('videoLink')->nullable();
             $table->timestamps();
         });

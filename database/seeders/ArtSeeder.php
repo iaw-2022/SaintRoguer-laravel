@@ -51,6 +51,13 @@ class ArtSeeder extends Seeder
                 rand(131, 140) => ['role' => ($faker->word)],
                 rand(141, 150) => ['role' => ($faker->word)],
             ]);
+            $Art->favorites()->attach([
+                rand(1, 3) => ['state' => $faker->randomElement(['to-watch', 'watched']), 'rating' => rand(1, 5)],
+                rand(4, 6) => ['state' => $faker->randomElement(['to-watch', 'watched']), 'rating' => rand(1, 5)],
+                rand(7, 9) => ['state' => $faker->randomElement(['to-watch', 'watcher']), 'rating' => rand(1, 5)],
+                rand(10, 12) => ['state' => $faker->randomElement(['to-watch', 'watched']), 'rating' => rand(1, 5)],
+                rand(13, 15) => ['state' => $faker->randomElement(['to-watch', 'watched']), 'rating' => rand(1, 5)],
+            ]);
         }
     }
 }

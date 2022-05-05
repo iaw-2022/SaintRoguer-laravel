@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtController;
 use App\Http\Controllers\ActorActressController;
 use App\Http\Controllers\CriticController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\AddDeleteFavController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +49,15 @@ Route::post('/critics', [CriticController::class, 'store'])->name('critics.store
 Route::get('/critics/{critic}/edit', [CriticController::class, 'edit'])->name('critics.edit');
 Route::put('/critics/{critic}', [CriticController::class, 'update'])->name('critics.update');
 Route::delete('/critics/{critic}', [CriticController::class, 'destroy'])->name('critics.destroy');
+
+//Favorite
+Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+Route::get('/favorites/editFavorite', [FavoriteController::class, 'edit'])->name('favorites.edit');
+Route::put('/favorites/{favorite}', [FavoriteController::class, 'update'])->name('favorites.update');
+
+
+Route::post('/favorites/Add', [FavoriteController::class, 'store'])->name('favorites.store');
+Route::post('/favorites/{favorite}/Delete', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
 
 
 //Dashboasrd.

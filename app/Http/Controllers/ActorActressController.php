@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ActorActress;
 use App\Models\Art;
-use Illuminate\Support\Facades\DB;
 
 
 class ActorActressController extends Controller
@@ -24,7 +23,7 @@ class ActorActressController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tile' => 'required|max:255',
+            'name' => 'required|alpha_num|max:255',
         ]);
         $actor_actress = ActorActress::create($request->all());
         if ($request->file('file')) {
@@ -51,7 +50,7 @@ class ActorActressController extends Controller
     public function update(Request $request, ActorActress $actor_actress)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => 'required|alpha_num|max:255',
         ]);
         $actor_actress->update($request->all());
         if ($request->file('file')) {
@@ -109,10 +108,11 @@ class ActorActressController extends Controller
     public function removeFromArtDestroy(Request $request, ActorActress $actor_actress, Art $art)
     {
         $art = Art::find($request->art_id);
+
         $art->actor_actresses()->detach($request->id);
 
         $actors_actresses = ActorActress::paginate(9);
 
-        return redirect()->route('actors-actresses.index', compact('actors_actresses'))->with('success', 'Actor/Actress remove from art successfully');
+        return redirect()->route('actors-actresses.index', compact('actors_actresses'))->with('success', 'Actor/Actress removed from art successfully');
     }
 }

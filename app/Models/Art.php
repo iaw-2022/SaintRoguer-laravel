@@ -53,6 +53,11 @@ class Art extends Model
         return $this->belongsToMany(ActorActress::class)->withPivot('role');
     }
 
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class)->withPivot('id','state', 'rating');
+    }
+
     //Relations polymorphic one to one.
     public function image()
     {

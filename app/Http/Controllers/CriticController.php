@@ -19,6 +19,11 @@ class CriticController extends Controller
 
     public function store(Request $request, Art $art)
     {
+        $request->validate([
+            'from' => 'required|alpha_num|max:255',
+            'comment' => 'required|alpha_num|max:255',
+            'rating' => 'required|integer|max:255',
+        ]);
 
         $critic = Critic::create([
             'from' => $request->from,
@@ -38,6 +43,11 @@ class CriticController extends Controller
 
     public function update(Request $request, Critic $critic)
     {
+        $request->validate([
+            'from' => 'required|alpha_num|max:255',
+            'comment' => 'required|alpha_num|max:255',
+            'rating' => 'required|integer|max:255',
+        ]);
         $critic->update(request()->all());
         return redirect()->route('arts.show', $critic->art_id);
     }

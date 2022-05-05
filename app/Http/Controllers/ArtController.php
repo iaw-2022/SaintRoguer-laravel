@@ -41,6 +41,21 @@ class ArtController extends Controller
 
     public function update(Request $request, Art $art)
     {
+        $request->validate([
+            'imdb_id' => 'nullable|alpha_num|unique:arts,imdb_id,',
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255',
+            'type' => 'required|alpha_num|max:255',
+            'year' => 'required|integer|max:255',
+            'releaseDate' => 'required|date|max:255',
+            'duration' => 'required|integer|max:255',
+            'plot' => 'required|alpha_num|max:255',
+            'userRating' => 'nullable|integer|max:255',
+            'imdbRating' => 'nullable|integer|max:255',
+            'director' => 'required|alpha_num|max:255',
+            'videoLink' => 'nullable|alpha_dash|max:255',
+
+        ]);
         $art->update(request()->all());
         if ($request->file('file')) {
 
@@ -81,6 +96,21 @@ class ArtController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'imdb_id' => 'nullable|alpha_num|unique:arts,imdb_id,',
+            'title' => 'required|max:255',
+            'slug' => 'required|max:255',
+            'type' => 'required|alpha_num|max:255',
+            'year' => 'required|integer|max:255',
+            'releaseDate' => 'required|date|max:255',
+            'duration' => 'required|integer|max:255',
+            'plot' => 'required|alpha_num|max:255',
+            'userRating' => 'nullable|integer|max:255',
+            'imdbRating' => 'nullable|integer|max:255',
+            'director' => 'required|alpha_num|max:255',
+            'videoLink' => 'nullable|alpha_dash|max:255',
+
+        ]);
         $art = Art::create($request->all());
         if ($request->file('file')) {
 

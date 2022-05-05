@@ -63,10 +63,14 @@
                 <img class="absolute inset-0 transform w-full -translate-y-4" src="{{asset('images/art_placeholder.jpg')}}" alt="{{$art->title}}" style=" filter: grayscale(0); " />
                 @endif
                 <div class="poster__footer flex flex-row relative pb-10 space-x-4 z-10">
+                    <form class="flex items-center py-2 px-4 rounded-full mx-auto text-white bg-red-500 hover:bg-red-700" action="{{route('favorites.store',$art)}}" method="POST">
+                        @csrf
+                        @method('post')
 
-                    <a class="flex items-center py-2 px-4 rounded-full mx-auto text-white bg-red-500 hover:bg-red-700" href="la ruta de la lista, agregando esto a la lista con el cartel verde, si ya esta se pone el rojo indicando que ya esta en la lisa">
-                        <div class="text-sm text-white ml-2">Add to list</div>
-                    </a>
+                        <input type="hidden" id="art_id" name="art_id" value="{{$art->id}}">
+
+                            <button type="submit" class="text-sm text-white ml-2">Add to list</button>
+                    </form>
                 </div>
             </div>
 

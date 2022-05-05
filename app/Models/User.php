@@ -61,4 +61,11 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //Relations.
+    //Relations many to many.
+    public function favorites()
+    {
+        return $this->belongsToMany(Art::class)->withPivot('id', 'state', 'rating');
+    }
 }

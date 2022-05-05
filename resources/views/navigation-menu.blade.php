@@ -19,6 +19,9 @@
                     <x-jet-nav-link href="{{ route('actors-actresses.index') }}" :active="request()->routeIs('actors-actresses.index')">
                         Actors & Actresses
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('favorites.index') }}" :active="request()->routeIs('favorites.index')">
+                        Favorites
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -102,7 +105,15 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-
+            <x-jet-responsive-nav-link href="{{ route('arts.index') }}" :active="request()->routeIs('arts.index')">
+                Movies & TV Shows
+                </x-jet-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('actors-actresses.index') }}" :active="request()->routeIs('actors-actresses.index')">
+                    Actors & Actresses
+                    </x-jet-nav-link>
+                    <x-jet-responsive-nav-link href="{{ route('favorites.index') }}" :active="request()->routeIs('favorites.index')">
+                        Favorites
+                        </x-jet-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -113,6 +124,7 @@
                 <div class="flex-shrink-0 mr-3">
                     <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                 </div>
+
                 @endif
 
                 <div>
