@@ -1,14 +1,14 @@
 <x-app-layout>
 
     <div class="main-art">
-        <div class="header flex top-art">
+        <div class="header top-art">
             <div class="title">
                 <p class="page-title-art">
                     Art catalog
                 </p>
                 <a href="{{route('arts.create')}}">
-                    <button class=" relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    <button class=" button-teal-to-lime">
+                        <span class="button-span">
                             Add Movie or TVSeries
                         </span>
                     </button>
@@ -25,10 +25,10 @@
                 </form>
             </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 ">
+        <div class="art-index-table ">
             @foreach ($arts as $art)
             <div class="card-art rounded-lgcursor-pointer ">
-                <h1 class="w-full block h-full ">
+                <h1 class="card-h1  ">
                     <a href="{{route('arts.show',$art)}}">
                         @if($art->image)
                         <?php
@@ -43,18 +43,18 @@
                             <p class="text-md  title-art">
                                 {{$art->title}}
                             </p>
-                            <div class="flex items-center mt-4">
+                            <div class="tag-pos">
                                 @foreach ($art->tags as $tag)
-                                <button type="button" class="bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">
+                                <button type="button" class="tag-index">
                                     {{$tag->name}}
                                 </button>
                                 @endforeach
                             </div>
                     </a>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white mt-4">
+                    <div class="button-above">
                         <a href="{{route('arts.edit',$art)}}">
-                            <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            <button class="button-purple-to-pink">
+                                <span class="button-span">
                                     Edit
                                 </span>
                             </button>
@@ -62,8 +62,8 @@
                         <form action="{{route('arts.destroy',$art)}}" method="POST">
                             @csrf
                             @method('delete')
-                            <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
-                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            <button class="button-pink-to-orange">
+                                <span class="button-span">
                                     Eliminate
                                 </span>
                             </button>
@@ -75,7 +75,7 @@
         </div>
         @endforeach
     </div>
-    <div class="mx-4 py-8">
+    <div class="links">
         {{$arts->links()}}
     </div>
     </div>

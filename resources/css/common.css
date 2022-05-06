@@ -4,7 +4,7 @@
 }
 
 .top-art {
-    @apply items-end justify-between mb-12
+    @apply  flex items-end justify-between mb-12
 }
 
 .page-title-art {
@@ -48,7 +48,7 @@
 
 
 .card-art {
-    @apply rounded-lg overflow-hidden shadow-lg m-auto
+    @apply rounded-lg overflow-hidden shadow-lg m-auto 
 }
 
 /* md */
@@ -56,6 +56,14 @@
     .card-art {
         @apply w-80 h-full
     }
+}
+
+.card-h1 {
+    @apply w-full block h-full
+}
+
+.art-index-table{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12
 }
 
 .image-art {
@@ -72,6 +80,18 @@
 
 .title-art {
     @apply text-indigo-500 font-medium
+}
+
+.tag-pos {
+    @apply flex items-center mt-4
+}
+
+.tag-index{
+    @apply bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300
+}
+
+.button-above {
+    @apply inline-flex items-center text-base font-semibold text-gray-900 dark:text-white mt-4
 }
 
 /*Art show*/
@@ -137,12 +157,21 @@
     @apply py-3 sm:py-4
 }
 
+
 .row{
     @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-4
 }
 
 .row2{
     @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-6 
+}
+
+.row3{
+    @apply flex items-center space-x-4
+}
+
+.row4{
+    @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-5
 }
 
 .table-image {
@@ -153,8 +182,16 @@
     @apply w-20 h-20 rounded-full
 }
 
+.image-in-table2{
+    @apply w-8 h-8 rounded-full
+}
+
 .table-text-area {
     @apply flex-1 min-w-0
+}
+
+.table-text-area2{
+    @apply text-sm font-medium text-gray-900 truncate dark:text-white
 }
 
 .table-text {
@@ -201,7 +238,20 @@
     @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800
 }
 
+/*Purple Button*/
+.button-purple {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800
+}
+
+/*Red Button*/
+.button-red {
+    @apply text-sm text-white ml-2
+}
 /*Form*/
+.form-table {
+    @apply p-4 rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700
+}
+
 .form-label{
     @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300
 }
@@ -218,3 +268,127 @@
     @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
 }
 
+.form-select{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-number{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-date{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-textarea{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-text-danger {
+    @apply font-medium
+}
+
+.form-text-danger-div {
+    @apply p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800
+}
+
+.form-separation {
+    @apply mb-8
+}
+
+.form-image-row {
+    @apply row mb-3
+}
+
+/*Show art pt2*/
+.show-art-card1{
+    @apply space-y-6 
+}
+
+.show-art-card2{
+    @apply relative cursor-pointer  z-10 px-10 pt-10 space-y-6
+}
+
+.show-art-card3{
+    @apply flex flex-col space-y-2 
+}
+
+.show-art-text1{
+    @apply text-2xl font-bold text-white
+}
+
+.show-art-text2{
+    @apply text-2xl font-bold text-white
+}
+
+.show-art-card4{
+    @apply  flex flex-row justify-between
+}
+
+.show-art-card5{
+    @apply flex flex-col
+}
+
+.show-art-text3{
+    @apply text-sm text-gray-400
+}
+
+.show-art-structure{
+    @apply flex flex-col 
+}
+
+.show-art-text4{
+    @apply text-xs text-gray-400 mb-2
+}
+
+.show-art-text5{
+    @apply text-xs text-gray-100 mb-6
+}
+
+.show-art-image1{
+    @apply absolute inset-0 transform w-full -translate-y-4
+}
+
+.show-art-form{
+    @apply flex flex-row relative pb-10 space-x-4 z-10
+}
+
+.show-art-form2{
+    @apply flex items-center py-2 px-4 rounded-full mx-auto text-white bg-red-500 hover:bg-red-700
+}
+
+.show-art-table-act{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12
+}
+
+.show-art-table-act-1{
+    @apply p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700
+}
+
+.show-art-table-critic1{
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800
+}
+
+.show-art-table-critic2{
+    @apply max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20
+}
+
+.show-art-table-critic3{
+    @apply text-gray-800 text-3xl font-semibold
+}
+
+.show-art-table-critic4{
+    @apply mt-2 text-gray-600
+}
+
+.show-art-table-critic5{
+    @apply flex justify-end mt-4
+}
+
+.show-art-table-critic6{
+    @apply text-xl font-medium text-indigo-500
+}
+
+.favorite-index1{
+    @apply p-4  bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700
+}

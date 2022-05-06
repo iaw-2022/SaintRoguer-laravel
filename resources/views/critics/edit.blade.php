@@ -1,26 +1,26 @@
 <x-app-layout>
     <div class="main-show-art ">
-        <div class="p-4 rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="form-table">
             {!! Form::model($critic,['route'=>['critics.update',$critic], 'method' =>'put','files'=>true]) !!}
-            <div class="mb-6">
-                {!! Form::label('from', 'From', ['class' => 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300']) !!}
-                {!! Form::text('from', null, ['class' => 'form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500', 'placeholder' => 'Input the name of the critic']) !!}
+            <div class="form-separation">
+                {!! Form::label('from', 'From', ['class' => 'form-label']) !!}
+                {!! Form::text('from', null, ['class' => 'form-control form-text', 'placeholder' => 'Input the name of the critic']) !!}
                 @error('from')
-                <span class="text-danger">{{$message}}</span>
+                <span class="form-text-danger">{{$message}}</span>
                 @enderror
             </div>
-            <div class="mb-6">
-                {!! Form::label('comment', 'Comment', ['class' => 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300']) !!}
-                {!! Form::textarea('comment', null, ['rows' => 4,'cols' => 54,'class' => 'form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500', 'placeholder' => 'Input the comment of the movie or TVShow']) !!}
+            <div class="form-separation">
+                {!! Form::label('comment', 'Comment', ['class' => 'form-label']) !!}
+                {!! Form::textarea('comment', null, ['rows' => 4,'cols' => 54,'class' => 'form-control form-textarea', 'placeholder' => 'Input the comment of the movie or TVShow']) !!}
                 @error('comment')
-                <span class="text-danger">{{$message}}</span>
+                <span class="form-text-danger">{{$message}}</span>
                 @enderror
             </div>
-            <div class="mb-6">
-                {!! Form::label('rating', 'Rating', ['class' => 'block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300']) !!}
-                {!! Form::number('rating', null, ['class' => 'form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500', 'placeholder' => 'Input the rating of the movie or TVShow']) !!}
+            <div class="form-separation">
+                {!! Form::label('rating', 'Rating', ['class' => 'form-label']) !!}
+                {!! Form::number('rating', null, ['class' => 'form-control form-number', 'placeholder' => 'Input the rating of the movie or TVShow']) !!}
                 @error('rating')
-                <span class="text-danger">{{$message}}</span>
+                <span class="form-text-danger">{{$message}}</span>
                 @enderror
             </div>
 
