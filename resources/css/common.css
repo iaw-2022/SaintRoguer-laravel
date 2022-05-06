@@ -19,7 +19,7 @@
     @apply flex-col max-w-sm justify-center
 }
 
-/* md */
+/* md sm*/
 @media(min-width: 640px) {
     .search-form-art {
         @apply flex-row flex-row w-3/4 w-full space-x-3 space-y-3 space-y-0;
@@ -99,3 +99,122 @@
 .show-card-transition2:hover {
     @apply -translate-y-2 shadow-2xl
 }
+
+
+/* Table */
+.table {
+    @apply p-4 bg-white rounded-lg border shadow-md bg-gray-800 border-gray-700
+}
+
+.table:dark {
+    @apply bg-gray-800 border-gray-700
+}
+
+@media(min-width: 640px) {
+    .table {
+        @apply p-8;
+    }
+}
+
+.title-area {
+    @apply flex justify-between items-center mb-4
+}
+
+.title-area-text {
+    @apply text-xl font-bold leading-none text-gray-900 dark:text-white
+}
+
+
+.inner-table1 {
+    @apply flow-root
+}
+
+.inner-table2 {
+    @apply divide-y divide-gray-200 dark:divide-gray-700
+}
+
+.row-separation {
+    @apply py-3 sm:py-4
+}
+
+.row{
+    @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-4
+}
+
+.row2{
+    @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-6 
+}
+
+.table-image {
+    @apply flex-shrink-0
+}
+
+.image-in-table {
+    @apply w-20 h-20 rounded-full
+}
+
+.table-text-area {
+    @apply flex-1 min-w-0
+}
+
+.table-text {
+    @apply  text-sm font-medium text-gray-900 dark:text-white
+}
+
+.label-1{
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300
+}
+
+.text-2{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.link{
+    @apply text-blue-500 dark:text-blue-300 mx-4 py-8
+}
+
+/*Button*/
+.button-span {
+    @apply relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0
+}
+/* Cyan to Blue*/
+.button-cyan-to-blue {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg  bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800
+}
+
+/*Teal to lime*/
+.button-teal-to-lime {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg  bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800
+}
+/*Red to Yellow*/
+.button-red-to-yellow {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg  bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400
+}
+
+/*Purple to Pink*/
+.button-purple-to-pink {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800
+}
+
+/*Pink to orange*/
+.button-pink-to-orange {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800
+}
+
+/*Form*/
+.form-label{
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300
+}
+
+.form-text {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-image {
+    @apply block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+} 
+
+.form-button {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+}
+
