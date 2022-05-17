@@ -12,10 +12,10 @@ class ImageFactory extends Factory
 
     public function definition()
     {
-        $image = $this->faker->image('public/storage/posters', 216, 321);
-        $file_extension = 'data:image/' . pathinfo($image, PATHINFO_EXTENSION) . ';base64,';
-        $file_name = pathinfo($image, PATHINFO_BASENAME);
-        $image_content = base64_encode(file_get_contents(public_path('storage/posters/' . $file_name)));
+        $extension = 'jpg';
+        $file_extension = 'data:image/' . $extension . ';base64,';
+        $file_get = file_get_contents("https://picsum.photos/" . "216" . "/" . "321");
+        $image_content = base64_encode($file_get);
         return [
             'image_content' => $image_content,
             'extension' =>  $file_extension

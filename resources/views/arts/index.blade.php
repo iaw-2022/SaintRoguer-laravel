@@ -69,6 +69,15 @@
                             </button>
                         </form>
                     </div>
+                    <div class="button-above">
+                        <a href="{{route('tags.manage',$art)}}">
+                            <button class="button-green-to-blue">
+                                <span class="button-span">
+                                    Manage Tags
+                                </span>
+                            </button>
+                        </a>
+                    </div>
 
             </div>
             </h1>

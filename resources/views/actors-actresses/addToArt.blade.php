@@ -31,9 +31,9 @@
                                 @csrf
                                 @method('post')
                                 <div class="mb-6">
-                                    <label for="role" class="label-1">Role</label>
+                                    <label for="role" class="label-1">Add role that the person played</label>
                                     <input type="hidden" id="art_id" name="art_id" value="{{$art->id}}">
-                                    <input type="text" id="role" name="role" class="text-2" placeholder="Shrek" required>
+                                    <input type="text" id="role" name="role" class="text-2" placeholder="Role of the actor/actress" required>
                                 </div>
                                 <div>
                                     <button type="submit" class=" group button-cyan-to-blue">

@@ -6,7 +6,7 @@
                 {!! Form::label('name', 'Name', ['class' => 'form-label']) !!}
                 {!! Form::text('name', null, ['class' => 'form-control form-text', 'placeholder' => 'Input the name of the actor or actress']) !!}
                 @error('name')
-                <span class="text-danger">{{$message}}</span>
+                <span class="text-danger form-error-text">{{$message}}</span>
                 @enderror
             </div>
 
@@ -21,7 +21,7 @@
                         {!! Form ::label('file','Default image', ['class' => 'form-label']) !!}
                         {!! Form ::file('file',['class'=>'form-control-file form-image','accept'=>'image/*']) !!}
                         @error('file')
-                        <span class="text-danger">{{$message}}</span>
+                        <span class="text-danger form-error-text">{{$message}}</span>
                         @enderror
                     </div>
                     You can select an image from your drive to change the default image of the new actor or actress.

@@ -20,9 +20,9 @@ class CriticController extends Controller
     public function store(Request $request, Art $art)
     {
         $request->validate([
-            'from' => 'required|alpha_num|max:255',
-            'comment' => 'required|alpha_num|max:255',
-            'rating' => 'required|integer|max:255',
+            'from' => 'required|max:255',
+            'comment' => 'required|max:280',
+            'rating' => 'required|integer|max:100',
         ]);
 
         $critic = Critic::create([
@@ -44,9 +44,9 @@ class CriticController extends Controller
     public function update(Request $request, Critic $critic)
     {
         $request->validate([
-            'from' => 'required|alpha_num|max:255',
-            'comment' => 'required|alpha_num|max:255',
-            'rating' => 'required|integer|max:255',
+            'from' => 'required|max:255',
+            'comment' => 'required|max:280',
+            'rating' => 'required|integer|max:100',
         ]);
         $critic->update(request()->all());
         return redirect()->route('arts.show', $critic->art_id);

@@ -32,7 +32,6 @@ class ArtController extends Controller
     public function edit(Art $art)
     {
         $type = [
-            'episode' => 'episode',
             'movie' => 'movie',
             'series' => 'series',
         ];
@@ -42,18 +41,19 @@ class ArtController extends Controller
     public function update(Request $request, Art $art)
     {
         $request->validate([
-            'imdb_id' => 'nullable|alpha_num|unique:arts,imdb_id,',
-            'title' => 'required|max:255',
-            'slug' => 'required|max:255',
-            'type' => 'required|alpha_num|max:255',
-            'year' => 'required|integer|max:255',
-            'releaseDate' => 'required|date|max:255',
-            'duration' => 'required|integer|max:255',
-            'plot' => 'required|alpha_num|max:255',
-            'userRating' => 'nullable|integer|max:255',
-            'imdbRating' => 'nullable|integer|max:255',
-            'director' => 'required|alpha_num|max:255',
-            'videoLink' => 'nullable|alpha_dash|max:255',
+            'imdb_id' => "nullable|alpha_num|unique:arts,imdb_id,$art->id",
+            'title' => "required|max:255|unique:arts,title,$art->id",
+            'slug' => "required|max:255|unique:arts,slug,$art->id",
+            'type' => 'required|alpha_num',
+            'year' => 'required|integer',
+            'releaseDate' => 'required|date',
+            'duration' => 'required|integer',
+            'plot' => 'required',
+            'userRating' => 'nullable|integer|max:100',
+            'imdbRating' => 'nullable|integer|max:100',
+            'director' => 'required',
+            'videoLink' => 'nullable|url',
+
 
         ]);
         $art->update(request()->all());
@@ -87,7 +87,6 @@ class ArtController extends Controller
     public function create()
     {
         $type = [
-            'episode' => 'episode',
             'movie' => 'movie',
             'series' => 'series',
         ];
@@ -97,18 +96,18 @@ class ArtController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'imdb_id' => 'nullable|alpha_num|unique:arts,imdb_id,',
-            'title' => 'required|max:255',
-            'slug' => 'required|max:255',
-            'type' => 'required|alpha_num|max:255',
-            'year' => 'required|integer|max:255',
-            'releaseDate' => 'required|date|max:255',
-            'duration' => 'required|integer|max:255',
-            'plot' => 'required|alpha_num|max:255',
-            'userRating' => 'nullable|integer|max:255',
-            'imdbRating' => 'nullable|integer|max:255',
-            'director' => 'required|alpha_num|max:255',
-            'videoLink' => 'nullable|alpha_dash|max:255',
+            'imdb_id' => 'nullable|alpha_num|unique:arts,imdb_id',
+            'title' => 'required|max:255|unique:arts,title',
+            'slug' => 'required|max:255|unique:arts,slug',
+            'type' => 'required|alpha_num',
+            'year' => 'required|integer',
+            'releaseDate' => 'required|date',
+            'duration' => 'required|integer',
+            'plot' => 'required',
+            'userRating' => 'nullable|integer|max:100',
+            'imdbRating' => 'nullable|integer|max:100',
+            'director' => 'required',
+            'videoLink' => 'nullable|url',
 
         ]);
         $art = Art::create($request->all());

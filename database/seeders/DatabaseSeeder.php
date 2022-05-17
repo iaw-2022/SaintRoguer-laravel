@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        echo Storage::deleteDirectory('posters');
-        echo Storage::makeDirectory('posters');
+        Storage::deleteDirectory('posters');
+        Storage::makeDirectory('posters');
 
 
         $this->call(RoleSeeder::class);

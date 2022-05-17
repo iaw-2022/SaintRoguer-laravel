@@ -6,6 +6,7 @@ use App\Http\Controllers\ActorActressController;
 use App\Http\Controllers\CriticController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\AddDeleteFavController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,19 @@ Route::put('/favorites/{favorite}', [FavoriteController::class, 'update'])->name
 Route::post('/favorites/Add', [FavoriteController::class, 'store'])->name('favorites.store');
 Route::post('/favorites/{favorite}/Delete', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
 
+//Tags
+Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
+Route::get('/tags/create', [TagController::class, 'create'])->name('tags.create');
+Route::post('/tags', [TagController::class, 'store'])->name('tags.store');
+Route::get('/tags/{tag}', [TagController::class, 'edit'])->name('tags.edit');
+Route::put('/tags/{tag}', [TagController::class, 'update'])->name('tags.update');
+Route::delete('/tags/{tag}', [TagController::class, 'destroy'])->name('tags.destroy');
+Route::get('/tags/manage/{art}',[TagController::class, 'manage'])->name('tags.manage');
+Route::get('/tags/manage/{art}/add',[TagController::class, 'add'])->name('tags.add');
+
+
+Route::post('/tags/manage/{art}/add',[TagController::class, 'addStore'])->name('tags.addStore');
+Route::post('/tags/manage/{art}/remove',[TagController::class, 'remove'])->name('tags.remove');
 
 //Dashboasrd.
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

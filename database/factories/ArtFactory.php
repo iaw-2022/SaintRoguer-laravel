@@ -31,7 +31,7 @@ class ArtFactory extends Factory
             'imdb_id' => $this->faker->unique()->randomNumber(7),
             'title' => $title,
             'slug' => Str::slug($title),
-            'type' => $this->faker->randomElement(['movie', 'series', 'episode']),
+            'type' => $this->faker->randomElement(['movie', 'series']),
             'year' => $this->faker->randomNumber(4),
             'releaseDate' => $this->faker->date(),
             'duration' => $this->faker->numberBetween(1, 350),

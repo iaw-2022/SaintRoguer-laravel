@@ -9,7 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "fakerphp/faker": "^1.9.1",
+        "fakerphp/faker": "^1.19",
+        "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.2",
         "laravel/jetstream": "^2.6",
@@ -21,6 +22,7 @@
     },
     "require-dev": {
         "laravel/sail": "^1.0.1",
+        "mmo/faker-images": "^0.6.0",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",

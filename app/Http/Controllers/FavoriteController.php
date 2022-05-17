@@ -7,13 +7,15 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Models\Art;
+use Illuminate\Validation\Rule;
 
 class FavoriteController extends Controller
 {
 
     public function index()
     {
-        $arts = User::orderBy('id', 'asc')->find(auth()->user()->id)->favorites;
+        $arts = User::find(auth()->user()->id)->favorites;
+        $arts = $arts->sortBy('id');
         return view('favorites.index', compact('arts'));
     }
 
@@ -23,9 +25,12 @@ class FavoriteController extends Controller
         $art2 = Str::before($art1, '=');
         $user = User::find(auth()->user()->id);
 
-        $user->favorites()->attach([
-            $art2 => ['state' => 'to-watch', 'rating' => '0'],
-        ]);
+        $atached = $user->favorites()->where('art_id', $art2)->first();
+
+        if($atached == null)
+            $user->favorites()->attach([
+                $art2 => ['state' => 'to-watch', 'rating' => '0'],
+            ]);
 
         return redirect()->route('favorites.index');
     }
@@ -46,9 +51,12 @@ class FavoriteController extends Controller
 
     public function update(Request $request, $id)
     {
-
+        $request->validate([
+            'state' => 'required|',Rule::in(['to-watch', 'watched']),
+            'rating' => 'nullable|integer|max:100',
+        ]);
         $user = User::find(auth()->user()->id);
-        $user->favorites()->syncWithoutDetaching([$id => ['state' => $request->state, 'rating' => $request->rating]]);
+        db::table('art_user')->where('id', $id)->update(['state' => $request->state, 'rating' => $request->rating]);
 
         return redirect()->route('favorites.index')->with('success', 'Favorite updated successfully');
     }
