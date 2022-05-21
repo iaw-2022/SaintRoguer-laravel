@@ -224,7 +224,7 @@ class ArtController extends Controller
 
         /* Critics */
         foreach($imdb_critic_array['items'] as $critic){
-            if($critic['publisher'] == ''){
+            if($critic['author'] == ''){
                 Critic::create([
                     'from' => $critic['publisher'],
                     'art_id' => $art->id,
