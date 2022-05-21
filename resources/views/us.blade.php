@@ -9,7 +9,7 @@
                     <h1 class="text-3xl uppercase">Santiago Rosales Guinzburg</h1>
                     <p class="font-semibold mb-5">Student</p>
                     <p>This is a website made for 'Ingenieria de aplicaciones web' with Laravel 9 & hosted in heroku.</p>
-                    <p>You can use IMDB Api to add a movie or TVShow just knowink it's title, it takes a while because it has to store all artists images.</p>
+                    <p>You can use IMDB Api to add a movie or TVShow just knowin it's title, it takes a while because it has to store all artists images.</p>
                 </div>
             </div>
         </div>
