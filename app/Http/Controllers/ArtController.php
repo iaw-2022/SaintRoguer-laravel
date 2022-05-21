@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Art;
+use App\Models\ActorActress;
+use App\Models\Critic;
+use App\Models\Image;
+use App\Models\Tag;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 
 class ArtController extends Controller
@@ -16,7 +21,7 @@ class ArtController extends Controller
 
     public function index()
     {
-        $arts = Art::orderBy('id', 'asc')->paginate(9);
+        $arts = Art::orderBy('id', 'desc')->paginate(9);
 
         return view('arts.index', compact('arts'));
     }
@@ -125,5 +130,130 @@ class ArtController extends Controller
             ]);
         }
         return redirect()->route('arts.index')->with('success', 'Art added successfully');
+    }
+
+    public function apiSearch(){
+        return view('arts.api-search');
+    }
+
+    public function apiSearching(Request $request){
+
+        $key = env('IMDB_API_KEY');
+        $url = "https://imdb-api.com/en/API/Search/" . $key . "/" . $request->title;
+        $imdb_json = file_get_contents($url);
+        if($imdb_json == null){
+            return redirect()->route('arts.api-search')->with('danger', 'No results found');
+        }
+        $imdb_array = json_decode($imdb_json, true);
+        return view('arts.api-select', compact('imdb_array'));
+    }
+
+    public function apiSave(Request $request){
+
+        $request->validate([
+            'imdb_id' => 'required|unique:arts,imdb_id'
+        ]);
+
+        $key = env('IMDB_API_KEY');
+        $url = "https://imdb-api.com/en/API/Title/" . $key . "/" . $request->imdb_id;
+        $url_video = "https://imdb-api.com/en/API/YouTubeTrailer/" . $key . "/" . $request->imdb_id;
+        $url_critic = "https://imdb-api.com/en/API/MetacriticReviews/" . $key . "/" . $request->imdb_id;
+
+
+        $imdb_json = file_get_contents($url);
+        if($imdb_json == null){
+            return redirect()->route('arts.api-search')->with('danger', 'No results found');
+        }
+        $imdb_array = json_decode($imdb_json, true);
+
+        $imdb_video_json = file_get_contents($url_video);
+        if($imdb_video_json == null){
+            return redirect()->route('arts.api-search')->with('danger', 'No results found');
+        }
+        $imdb_video_array = json_decode($imdb_video_json, true);
+
+        $imdb_critic_json = file_get_contents($url_critic);
+        if($imdb_critic_json == null){
+            return redirect()->route('arts.api-search')->with('danger', 'No results found');
+        }
+        $imdb_critic_array = json_decode($imdb_critic_json, true);
+
+        if($imdb_array['runtimeMins'] == null){
+            $imdb_array['runtimeMins'] = 0;
+        }
+        /* Art creation */
+        $art = Art::create([
+            'imdb_id' => $imdb_array['id'],
+            'title' => $imdb_array['fullTitle'],
+            'slug' => Str::slug($imdb_array['fullTitle']),
+            'type' => $imdb_array['type'],
+            'year' => $imdb_array['year'],
+            'releaseDate' => $imdb_array['releaseDate'],
+            'duration' => $imdb_array['runtimeMins'],
+            'plot' => $imdb_array['plot'],
+            'director' => $imdb_array['directors'],
+        ]);
+
+        /* Art image */
+        $art->Image()->create([
+            'image_content' => base64_encode(file_get_contents($imdb_array['image'])),
+            'extension' => 'data:image/jpg;base64,'
+        ]);
+
+        /* Video Link */
+        $art->update([
+            'videoLink' => $imdb_video_array['videoUrl'],
+        ]);
+        /* Cast*/
+        foreach($imdb_array['actorList'] as $cast){
+            $artist = ActorActress::where('name', $cast['name'])->first();
+            if(!$artist){
+                $artist = ActorActress::create([
+                    'name' => $cast['name']
+                ]);
+                $artist->Image()->create([
+                    'image_content' => base64_encode(file_get_contents($cast['image'])),
+                    'extension' => 'data:image/jpg;base64,'
+                ]);
+            } 
+            $role = Str::after($cast['asCharacter'], 'as ');
+            $art->actor_actresses()->attach([
+                $artist->id => ['role' => $role]
+            ]);           
+        }
+
+        /* Critics */
+        foreach($imdb_critic_array['items'] as $critic){
+            if($critic['publisher'] == ''){
+                Critic::create([
+                    'from' => $critic['publisher'],
+                    'art_id' => $art->id,
+                    'comment' => $critic['content'],
+                    'rating' => $critic['rate']
+                ]);
+            }
+            else{
+                Critic::create([
+                    'from' => $critic['author'],
+                    'art_id' => $art->id,
+                    'comment' => $critic['content'],
+                    'rating' => $critic['rate']
+                ]);
+            }
+        }
+
+        /*Tags */
+        foreach($imdb_array['genreList'] as $genre){
+            $tag = Tag::where('name', $genre['value'])->first();
+            if(!$tag){
+                $tag = Tag::create([
+                    'name' => $genre['value'],
+                    'slug' => $genre['value']
+                ]);
+            }
+            $art->tags()->attach($tag->id);
+        }
+
+        return redirect()->route('arts.show', $art->id);
     }
 }

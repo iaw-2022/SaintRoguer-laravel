@@ -25,14 +25,14 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Critic',
             'email' => 'critic@gmail.com',
-            'password' => bcrypt('admin')
+            'password' => bcrypt('critic')
         ])->assignRole('critic');
 
         User::create([
-            'name' => 'Moderator',
-            'email' => 'mod@gmail.com',
-            'password' => bcrypt('admin')
-        ])->assignRole('moderator');
+            'name' => 'agent',
+            'email' => 'agent@gmail.com',
+            'password' => bcrypt('agent')
+        ])->assignRole('talent-agent');
 
         User::create([
             'name' => 'User',

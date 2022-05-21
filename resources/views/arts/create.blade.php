@@ -1,6 +1,15 @@
 <x-app-layout>
     <div class="main-show-art ">
         <div class="form-table">
+            <div class="button-above">
+                <a href="{{route('arts.api-search')}}">
+                    <button class="button-cyan-to-blue">
+                        <span class="button-span">
+                            Create using IMDB API
+                        </span>
+                    </button>
+                </a>
+            </div>
             {!! Form::open(['route' => 'arts.store','files'=>true]) !!}
             <div class="form-separation">
                 {!! Form::label('imdb_id', 'IMBD ID', ['class' => 'form-label']) !!}

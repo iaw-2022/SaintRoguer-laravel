@@ -6,13 +6,15 @@
                 <p class="page-title-art">
                     Art catalog
                 </p>
-                <a href="{{route('arts.create')}}">
-                    <button class=" button-teal-to-lime">
-                        <span class="button-span">
-                            Add Movie or TVSeries
-                        </span>
-                    </button>
-                </a>
+                @can('arts.create')
+                    <a href="{{route('arts.create')}}">
+                        <button class=" button-teal-to-lime">
+                            <span class="button-span">
+                                Add Movie or TVSeries
+                            </span>
+                        </button>
+                    </a>
+                @endcan
             </div>
             <div class="text-end">
                 <form class="flex search-form-art">
@@ -51,34 +53,37 @@
                                 @endforeach
                             </div>
                     </a>
-                    <div class="button-above">
-                        <a href="{{route('arts.edit',$art)}}">
-                            <button class="button-purple-to-pink">
-                                <span class="button-span">
-                                    Edit
-                                </span>
-                            </button>
-                        </a>
-                        <form action="{{route('arts.destroy',$art)}}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button class="button-pink-to-orange">
-                                <span class="button-span">
-                                    Eliminate
-                                </span>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="button-above">
-                        <a href="{{route('tags.manage',$art)}}">
-                            <button class="button-green-to-blue">
-                                <span class="button-span">
-                                    Manage Tags
-                                </span>
-                            </button>
-                        </a>
-                    </div>
-
+                    @can('arts.create')
+                        <div class="button-above">
+                            <a href="{{route('arts.edit',$art)}}">
+                                <button class="button-purple-to-pink">
+                                    <span class="button-span">
+                                        Edit
+                                    </span>
+                                </button>
+                            </a>
+                            <form action="{{route('arts.destroy',$art)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="button-pink-to-orange">
+                                    <span class="button-span">
+                                        Eliminate
+                                    </span>
+                                </button>
+                            </form>
+                        </div>
+                    @endcan
+                    @can('tags.manage')
+                        <div class="button-above">
+                            <a href="{{route('tags.manage',$art)}}">
+                                <button class="button-green-to-blue">
+                                    <span class="button-span">
+                                        Manage Tags
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                    @endcan
             </div>
             </h1>
         </div>

@@ -16,15 +16,21 @@
                     <x-jet-nav-link href="{{ route('arts.index') }}" :active="request()->routeIs('arts.index')">
                         Movies & TV Shows
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('actors-actresses.index') }}" :active="request()->routeIs('actors-actresses.index')">
-                        Actors & Actresses
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('favorites.index') }}" :active="request()->routeIs('favorites.index')">
-                        Favorites
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('tags.index') }}" :active="request()->routeIs('tags.index')">
-                        Tags
-                    </x-jet-nav-link>
+                    @can('actors-actresses.index')
+                        <x-jet-nav-link href="{{ route('actors-actresses.index') }}" :active="request()->routeIs('actors-actresses.index')">
+                            Actors & Actresses
+                        </x-jet-nav-link>
+                    @endcan
+                    @auth()
+                        <x-jet-nav-link href="{{ route('favorites.index') }}" :active="request()->routeIs('favorites.index')">
+                            Favorites
+                        </x-jet-nav-link>
+                    @endauth
+                    @can('tags.index')
+                        <x-jet-nav-link href="{{ route('tags.index') }}" :active="request()->routeIs('tags.index')">
+                            Tags
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
 
@@ -56,12 +62,6 @@
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
-
-                            @can('admin.home')
-                            <x-jet-dropdown-link href="{{ route('admin.home') }}">
-                                Dashboard
-                            </x-jet-dropdown-link>
-                            @endcan
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
@@ -111,15 +111,21 @@
             <x-jet-responsive-nav-link href="{{ route('arts.index') }}" :active="request()->routeIs('arts.index')">
                 Movies & TV Shows
             </x-jet-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('actors-actresses.index') }}" :active="request()->routeIs('actors-actresses.index')">
-                Actors & Actresses
-            </x-jet-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('favorites.index') }}" :active="request()->routeIs('favorites.index')">
-                Favorites
-            </x-jet-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('tags.index') }}" :active="request()->routeIs('tags.index')">
-                Tags
-            </x-jet-nav-link>
+            @can('actors-actresses.index')
+                <x-jet-responsive-nav-link href="{{ route('actors-actresses.index') }}" :active="request()->routeIs('actors-actresses.index')">
+                    Actors & Actresses
+                </x-jet-nav-link>
+            @endcan
+            @auth()
+                <x-jet-responsive-nav-link href="{{ route('favorites.index') }}" :active="request()->routeIs('favorites.index')">
+                    Favorites
+                </x-jet-nav-link>
+            @endauth
+            @can('tags.index')
+                <x-jet-responsive-nav-link href="{{ route('tags.index') }}" :active="request()->routeIs('tags.index')">
+                    Tags
+                </x-jet-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->

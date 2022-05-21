@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\ActorActress;
 use App\Models\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,8 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         Tag::factory()->count(8)->create();
-        ActorActress::factory()->count(150)->create();
-
+        $this->call(ActorActressSeeder::class);
         $this->call(ArtSeeder::class);
     }
 }

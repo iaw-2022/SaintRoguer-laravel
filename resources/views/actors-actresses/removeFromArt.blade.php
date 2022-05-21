@@ -35,8 +35,8 @@
                             <form action="{{route('actors-actresses.removeFromArtDestroy',$actor_actress,$art)}}" method="POST">
                                 @csrf
                                 @method('post')
-                                <input type="hidden" id="pivot_id" name="pivot_id" value="{{$art->id}}">
-                                <input type="hidden" id="art_id" name="art_id" value="{{$art->art_id}}">
+                                <input type="hidden" id="pivot_id" name="pivot_id" value="{{$art->pivot->id}}">
+                                <input type="hidden" id="art_id" name="art_id" value="{{$art->id}}">
 
                                 <div>
                                     <button type="submit" class="form-button">Delete</button>

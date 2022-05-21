@@ -50,7 +50,7 @@ class Art extends Model
 
     public function actor_actresses()
     {
-        return $this->belongsToMany(ActorActress::class)->withPivot('role');
+        return $this->belongsToMany(ActorActress::class)->withPivot('id','role');
     }
 
     public function favorites()

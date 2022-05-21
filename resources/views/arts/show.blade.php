@@ -26,15 +26,15 @@
                                         $avgRating = $avgRating / $count;
                                     ?>
                                     <div class="popularity">{{$avgRating}}</div>
-                                    <div class="show-art-text3">Critic rating:</div>
+                                    <div class="show-art-text3">Critic rating</div>
                                 </div>
                                 <div class="show-art-structure">
                                     <div class="release">{{$art->releaseDate}}</div>
-                                    <div class="show-art-text3">Release date:</div>
+                                    <div class="show-art-text3">Release date</div>
                                 </div>
                                 <div class="show-art-structure">
                                     <div class="release">{{$art->duration}} min</div>
-                                    <div class="show-art-text3">Runtime:</div>
+                                    <div class="show-art-text3">Runtime</div>
                                 </div>
                             </div>
                             <div class="show-art-structure">
@@ -74,7 +74,8 @@
             <!-- Actor / Actress -->
             <div class="show-art-table-act-1">
                 <div class="title-area">
-                    <h3 class="title-area-text">Cast</h3>
+                    <h3 class="title-area-text">Artist</h3>
+                    <h3 class="title-area-text">Role</h3>
                 </div>
                 <div class="inner-table1">
                     <ul role="list" class="inner-table2">
@@ -114,13 +115,15 @@
                     <h3 class="title-area-text">Critics</h3>
                 </div>
                 <div class="title-area">
-                    <a href="{{route('critics.create',['art'=>$art])}}">
-                        <button class=" show-art-table-critic1">
-                            <span class="button-span">
-                                Add a Critic
-                            </span>
-                        </button>
-                    </a>
+                    @can('critics.create')
+                        <a href="{{route('critics.create',['art'=>$art])}}">
+                            <button class=" show-art-table-critic1">
+                                <span class="button-span">
+                                    Add a Critic
+                                </span>
+                            </button>
+                        </a>
+                    @endcan
                 </div>
                 <div class="inner-table1">
                     <ul role="list" class="inner-table2">
@@ -138,26 +141,28 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="row-separation ">
-                            <div class="button-above">
-                                <a href="{{route('critics.edit',$critic)}}">
-                                    <button class="button-purple-to-pink">
-                                        <span class="button-span">
-                                            Edit
-                                        </span>
-                                    </button>
-                                </a>
-                                <form action="{{route('critics.destroy',['critic' => $critic, 'art' => $art])}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="button-pink-to-orange">
-                                        <span class="button-span">
-                                            Eliminate
-                                        </span>
-                                    </button>
-                                </form>
-                            </div>
-                        </li>
+                        @can('critics.edit')
+                            <li class="row-separation ">
+                                <div class="button-above">
+                                    <a href="{{route('critics.edit',$critic)}}">
+                                        <button class="button-purple-to-pink">
+                                            <span class="button-span">
+                                                Edit
+                                            </span>
+                                        </button>
+                                    </a>
+                                    <form action="{{route('critics.destroy',['critic' => $critic, 'art' => $art])}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="button-pink-to-orange">
+                                            <span class="button-span">
+                                                Eliminate
+                                            </span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </li>
+                        @endcan
                         @endforeach
                     </ul>
                 </div>

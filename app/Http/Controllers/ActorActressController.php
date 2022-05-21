@@ -11,7 +11,7 @@ class ActorActressController extends Controller
 {
     public function index()
     {
-        $actors_actresses = ActorActress::paginate(9);
+        $actors_actresses = ActorActress::orderBy('name', 'asc')->paginate(9);
         return view('actors-actresses.index', compact('actors_actresses'));
     }
 
@@ -50,7 +50,7 @@ class ActorActressController extends Controller
     public function update(Request $request, ActorActress $actor_actress)
     {
         $request->validate([
-            'name' => 'required|alpha_num|max:255',
+            'name' => 'required|max:255',
         ]);
         $actor_actress->update($request->all());
         if ($request->file('file')) {
@@ -109,9 +109,9 @@ class ActorActressController extends Controller
     {
         $art = Art::find($request->art_id);
 
-        $art->actor_actresses()->detach($request->id);
+        $art->actor_actresses()->detach($actor_actress->id);
 
-        $actors_actresses = ActorActress::paginate(9);
+        $actors_actresses = ActorActress::orderBy('name', 'asc')->paginate(9);
 
         return redirect()->route('actors-actresses.index', compact('actors_actresses'))->with('success', 'Actor/Actress removed from art successfully');
     }

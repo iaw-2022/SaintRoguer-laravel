@@ -24,7 +24,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col">
+                <div class="col form-label">
                     <div class="form-group">
                         {!! Form ::label('file','Default image', ['class' => 'form-label']) !!}
                         {!! Form ::file('file',['class'=>'form-control-file form-image','accept'=>'image/*']) !!}
