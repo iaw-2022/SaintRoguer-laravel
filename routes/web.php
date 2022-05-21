@@ -81,3 +81,5 @@ Route::get('/tags/manage/{art}/add',[TagController::class, 'add'])->middleware('
 Route::post('/tags/manage/{art}/add',[TagController::class, 'addStore'])->middleware('can:tags.add')->name('tags.addStore');
 Route::post('/tags/manage/{art}/remove',[TagController::class, 'remove'])->middleware('can:tags.remove')->name('tags.remove');
 
+//Info
+Route::view('us','us')->name('us');

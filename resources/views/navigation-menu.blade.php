@@ -31,6 +31,9 @@
                             Tags
                         </x-jet-nav-link>
                     @endcan
+                    <x-jet-nav-link href="{{route('us')}}" :active="request()->routeIs('us')">
+                        Us
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -126,6 +129,9 @@
                     Tags
                 </x-jet-nav-link>
             @endcan
+            <x-jet-responsive-nav-link href="{{route('us')}}" :active="request()->routeIs('us')">
+                Us
+            </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
