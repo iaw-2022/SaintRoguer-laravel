@@ -150,9 +150,10 @@ class ArtController extends Controller
 
     public function apiSave(Request $request){
 
-        $request->validate([
-            'imdb_id' => 'required|unique:arts,imdb_id'
-        ]);
+        $art = Art::where('imdb_id', $request->imdb_id)->first();
+        if($art){
+            return redirect()->route('arts.show', $art->id);
+        }
 
         $key = env('IMDB_API_KEY');
         $url = "https://imdb-api.com/en/API/Title/" . $key . "/" . $request->imdb_id;
