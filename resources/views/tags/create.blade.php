@@ -9,7 +9,7 @@
                 <span class="text-danger form-error-text">{{$message}}</span>
                 @enderror
             </div>
-            {!! Form::submit('Add actor/actress', ['class' => 'form-button']) !!}
+            {!! Form::submit('Create Tag', ['class' => 'form-button']) !!}
 
             {!! Form::close() !!}
 

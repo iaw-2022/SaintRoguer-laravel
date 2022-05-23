@@ -16,16 +16,6 @@
                     </a>
                 @endcan
             </div>
-            <div class="text-end">
-                <form class="flex search-form-art">
-                    <div class=" relative ">
-                        <input type="text" id="&quot;form-subscribe-Search" class=" border search-form-text-art" placeholder="Enter a title" />
-                    </div>
-                    <button class="search-form-button-art" type="submit">
-                        Search
-                    </button>
-                </form>
-            </div>
         </div>
         <div class="art-index-table ">
             @foreach ($arts as $art)
