@@ -53,7 +53,7 @@ class FavoriteController extends Controller
     {
         $request->validate([
             'state' => 'required|',Rule::in(['to-watch', 'watched']),
-            'rating' => 'nullable|integer|max:100',
+            'rating' => 'required|nullable|integer|max:100|min:0',
         ]);
         $user = User::find(auth()->user()->id);
         db::table('art_user')->where('id', $id)->update(['state' => $request->state, 'rating' => $request->rating]);

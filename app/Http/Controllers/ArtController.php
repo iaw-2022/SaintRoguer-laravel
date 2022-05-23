@@ -137,6 +137,9 @@ class ArtController extends Controller
     }
 
     public function apiSearching(Request $request){
+        $request->validate([
+            'title' => 'required|max:255',
+        ]);
 
         $key = env('IMDB_API_KEY');
         $url = "https://imdb-api.com/en/API/Search/" . $key . "/" . $request->title;
