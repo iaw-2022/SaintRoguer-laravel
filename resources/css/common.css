@@ -1,0 +1,411 @@
+/*Art index */
+.main-art {
+    @apply w-full bg-gray-900 p-12;
+}
+
+.top-art {
+    @apply  flex items-end justify-between mb-12
+}
+
+.page-title-art {
+    @apply text-4xl font-bold text-gray-400 mb-4
+}
+
+.search-description-art {
+    @apply text-2xl font-light text-gray-400
+}
+
+.search-form-art {
+    @apply flex-col max-w-sm justify-center
+}
+
+/* md sm*/
+@media(min-width: 640px) {
+    .search-form-art {
+        @apply flex-row flex-row w-3/4 w-full space-x-3 space-y-3 space-y-0;
+    }
+}
+
+.search-form-text-art {
+    @apply rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base
+}
+
+.search-form-text-art:focus {
+    @apply ring-purple-600 border-transparent
+}
+
+.search-form-button-art {
+    @apply flex-shrink-0 px-4 py-2 text-base font-semibold text-white bg-purple-600 rounded-lg shadow-md
+}
+
+.search-form-button-art:hover {
+    @apply bg-purple-700
+}
+
+.search-form-button-art:focus {
+    @apply outline-none ring-2 ring-purple-500 ring-offset-2 ring-offset-purple-200
+}
+
+
+.card-art {
+    @apply rounded-lg overflow-hidden shadow-lg m-auto 
+}
+
+/* md */
+@media(min-width: 640px) {
+    .card-art {
+        @apply w-80 h-full
+    }
+}
+
+.card-h1 {
+    @apply w-full block h-full
+}
+
+.art-index-table{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12
+}
+
+.image-art {
+    @apply object-cover object-center w-80 h-80 block
+}
+
+.card-botom-art {
+    --tw-bg-opacity: 1;
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+}
+
+.title-art {
+    @apply text-indigo-500 font-medium
+}
+
+.tag-pos {
+    @apply flex items-center mt-4
+}
+
+.tag-index{
+    @apply bg-gray-100 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300
+}
+
+.button-above {
+    @apply inline-flex items-center text-base font-semibold text-gray-900 dark:text-white mt-4
+}
+
+/*Art show*/
+.main-show-art {
+    @apply bg-gray-900 p-12;
+}
+
+.show-card-art {
+    @apply flex max-w-sm w-full bg-gray-900 shadow-md rounded-lg overflow-hidden mx-auto
+}
+
+.show-card-art-border {
+    @apply w-2 bg-gray-900
+}
+
+.show-card-transition {
+    @apply absolute inset-0 z-10 transition duration-300 ease-in-out bg-gradient-to-t from-black via-gray-900 to-transparent
+}
+
+
+.show-card-transition2 {
+    @apply overflow-hidden rounded-xl relative transform transition ease-in-out duration-500 shadow-lg text-white
+}
+
+.show-card-transition2:hover {
+    @apply -translate-y-2 shadow-2xl
+}
+
+
+/* Table */
+.table {
+    @apply p-4 bg-white rounded-lg border shadow-md bg-gray-800 border-gray-700
+}
+
+.table:dark {
+    @apply bg-gray-800 border-gray-700
+}
+
+@media(min-width: 640px) {
+    .table {
+        @apply p-8;
+    }
+}
+
+.title-area {
+    @apply flex justify-between items-center mb-4
+}
+
+.title-area-text {
+    @apply text-xl font-bold leading-none text-gray-900 dark:text-white
+}
+
+
+.inner-table1 {
+    @apply flow-root
+}
+
+.inner-table2 {
+    @apply divide-y divide-gray-200 dark:divide-gray-700
+}
+
+.row-separation {
+    @apply py-3 sm:py-4
+}
+
+
+.row{
+    @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-4
+}
+
+.row2{
+    @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-6 
+}
+
+.row3{
+    @apply flex items-center space-x-4
+}
+
+.row4{
+    @apply flex items-center space-x-4 grid grid-cols-1 lg:grid-cols-5
+}
+
+.table-image {
+    @apply flex-shrink-0
+}
+
+.image-in-table {
+    @apply w-20 h-20 rounded-full
+}
+
+.image-in-table2{
+    @apply w-8 h-8 rounded-full
+}
+
+.table-text-area {
+    @apply flex-1 min-w-0
+}
+
+.table-text-area2{
+    @apply text-sm font-medium text-gray-900 truncate dark:text-white
+}
+
+.table-text {
+    @apply  text-sm font-medium text-gray-900 dark:text-white
+}
+
+.label-1{
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300
+}
+
+.text-2{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.link{
+    @apply text-blue-500 dark:text-blue-300 mx-4 py-8
+}
+
+/*Button*/
+.button-span {
+    @apply relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0
+}
+/* Cyan to Blue*/
+.button-cyan-to-blue {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg  bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800
+}
+
+/* Green to Blue*/
+.button-green-to-blue {
+    @apply relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0
+}
+
+/*Teal to lime*/
+.button-teal-to-lime {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg  bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800
+}
+/*Red to Yellow*/
+.button-red-to-yellow {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg  bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400
+}
+
+/*Purple to Pink*/
+.button-purple-to-pink {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800
+}
+
+/*Pink to orange*/
+.button-pink-to-orange {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800
+}
+
+/*Purple Button*/
+.button-purple {
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800
+}
+
+/*Red Button*/
+.button-red {
+    @apply text-sm text-white ml-2
+}
+/*Form*/
+.form-table {
+    @apply p-4 rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700
+}
+
+.form-label{
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300
+}
+
+.form-text {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-image {
+    @apply block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+} 
+
+.form-button {
+    @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
+}
+
+.form-select{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-number{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-date{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-textarea{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+}
+
+.form-text-danger {
+    @apply font-medium
+}
+
+.form-text-danger-div {
+    @apply p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800
+}
+
+.form-separation {
+    @apply mb-8
+}
+
+.form-image-row {
+    @apply row mb-3
+}
+
+/*Show art pt2*/
+.show-art-card1{
+    @apply space-y-6 
+}
+
+.show-art-card2{
+    @apply relative cursor-pointer  z-10 px-10 pt-10 space-y-6
+}
+
+.show-art-card3{
+    @apply flex flex-col space-y-2 
+}
+
+.show-art-text1{
+    @apply text-2xl font-bold text-white
+}
+
+.show-art-text2{
+    @apply text-2xl font-bold text-white
+}
+
+.show-art-card4{
+    @apply  flex flex-row justify-between
+}
+
+.show-art-card5{
+    @apply flex flex-col
+}
+
+.show-art-text3{
+    @apply text-sm text-gray-400
+}
+
+.show-art-structure{
+    @apply flex flex-col 
+}
+
+.show-art-text4{
+    @apply text-xs text-gray-400 mb-2
+}
+
+.show-art-text5{
+    @apply text-xs text-gray-100 mb-6
+}
+
+.show-art-image1{
+    @apply absolute inset-0 transform w-full -translate-y-4
+}
+
+.show-art-form{
+    @apply flex flex-row relative pb-10 space-x-4 z-10
+}
+
+.show-art-form2{
+    @apply flex items-center py-2 px-4 rounded-full mx-auto text-white bg-red-500 hover:bg-red-700
+}
+
+.show-art-table-act{
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12
+}
+
+.show-art-table-act-1{
+    @apply p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700
+}
+
+.show-art-table-critic1{
+    @apply relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800
+}
+
+.show-art-table-critic2{
+    @apply max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20
+}
+
+.show-art-table-critic3{
+    @apply text-gray-800 text-3xl font-semibold
+}
+
+.show-art-table-critic4{
+    @apply mt-2 text-gray-600
+}
+
+.show-art-table-critic5{
+    @apply flex justify-end mt-4
+}
+
+.show-art-table-critic6{
+    @apply text-xl font-medium text-indigo-500
+}
+
+.favorite-index1{
+    @apply p-4  bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700
+}
+
+.form-error-text {
+    @apply text-red-500 text-sm font-medium
+}
+
+.full-height {
+    height: 100%;
+  }
+
+.form-radio {
+    @apply w-4 h-4 text-teal-600 bg-gray-100 border-gray-300 focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
+}  
