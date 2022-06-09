@@ -29,7 +29,7 @@ class TagController extends Controller
         ]);
         $tag = new Tag;
         $tag->name = $request->name;
-        $tag->slug = Str::slug($request->name);
+        $tag->slug = $request->name;
 
         $tag->save();
         return redirect()->route('tags.index');
